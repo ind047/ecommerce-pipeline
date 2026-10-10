@@ -1,0 +1,12 @@
+{
+  "parquetOptions": {
+    "enableListInference": false,
+    "enumAsString": false,
+    "mapTargetType": null
+  },
+  "sourceFormat": "PARQUET",
+  "sourceUris": [
+    "gs://ecommerce-data-pipeline-511117-raw-data/*.parquet"
+  ],
+  "timestampTargetPrecision": []
+}
