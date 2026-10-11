@@ -9,6 +9,7 @@ authors = [
 requires-python = ">=3.13"
 dependencies = [
     "faker>=40.42.0",
+    "google-cloud-storage>=3.17.0",
     "pandas>=3.0.6",
     "pyarrow>=26.0.0",
     "requests>=2.34.2",

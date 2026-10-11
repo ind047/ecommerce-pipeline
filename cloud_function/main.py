@@ -5,30 +5,31 @@ from datetime import datetime, timedelta
 from google.cloud import storage
 import io
 import functions_framework
+from data_generator import generate_mock_orders
 
-fake = Faker()
-Faker.seed(42)  # Seed for reproducibility
+# fake = Faker()
+# Faker.seed(42)  # Seed for reproducibility
 
-CUSTOMER_POOL = [{"customer_id":fake.uuid4(),"customer_name":fake.name()} for _ in range(300)]  # Pre-generate a pool of customer IDs
+# CUSTOMER_POOL = [{"customer_id":fake.uuid4(),"customer_name":fake.name()} for _ in range(300)]  # Pre-generate a pool of customer IDs
 
-def generate_mock_orders(num_order=5000):
-    orders = []
-    customer = random.choice(CUSTOMER_POOL)
-    for _ in range(num_order):
-        order = {
-            "order_id": fake.uuid4(),
-            "customer_id": customer["customer_id"],
-            "customer_name": customer["customer_name"],
-            "product_category": random.choice(["Electronics", "Clothing", "Home & Kitchen", "Books", "Toys"]),
-            "price": round(random.uniform(5.0, 500.0), 2),
-            "quantity": random.randint(1, 10),
-            "order_date": (datetime.now() - timedelta(minutes=random.randint(0, 1440))).strftime("%Y-%m-%d %H:%M:%S"),
-            "status": random.choice(["Pending", "Shipped", "Delivered", "Cancelled"])
-        }
-        orders.append(order)
+# def generate_mock_orders(num_order=5000):
+#     orders = []
+#     for _ in range(num_order):
+#         customer = random.choice(CUSTOMER_POOL)
+#         order = {
+#             "order_id": fake.uuid4(),
+#             "customer_id": customer["customer_id"],
+#             "customer_name": customer["customer_name"],
+#             "product_category": random.choice(["Electronics", "Clothing", "Home & Kitchen", "Books", "Toys"]),
+#             "price": round(random.uniform(5.0, 500.0), 2),
+#             "quantity": random.randint(1, 10),
+#             "order_date": (datetime.now() - timedelta(minutes=random.randint(0, 1440))).strftime("%Y-%m-%d %H:%M:%S"),
+#             "status": random.choice(["Pending", "Shipped", "Delivered", "Cancelled"])
+#         }
+#         orders.append(order)
 
-    df = pd.DataFrame(orders)
-    return df
+#     df = pd.DataFrame(orders)
+#     return df
 
 @functions_framework.http
 def run_pipeline(request):
