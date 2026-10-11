@@ -24,6 +24,6 @@ def generate_mock_orders(num_orders=5000):
             "price": round(random.uniform(5.0, 500.0), 2),
             "quantity": random.randint(1, 10),
             "order_date": (datetime.now() - timedelta(minutes=random.randint(0, 1440))).strftime("%Y-%m-%d %H:%M:%S"),
-            "status": random.choice([...]),
+            "status": random.choice(["Pending", "Shipped", "Delivered", "Cancelled"]),
         })
     return pd.DataFrame(orders)
