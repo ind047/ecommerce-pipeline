@@ -1,4 +1,6 @@
 # cloud_function/data_generator.py
+from uuid import uuid4
+
 import pandas as pd
 from faker import Faker
 import random
@@ -17,7 +19,7 @@ def generate_mock_orders(num_orders=5000):
     for _ in range(num_orders):
         customer = random.choice(CUSTOMER_POOL)   # inside the loop!
         orders.append({
-            "order_id": fake.uuid4(),
+            "order_id": str(uuid4()),
             "customer_id": customer["customer_id"],
             "customer_name": customer["customer_name"],
             "product_category": random.choice(["Electronics", "Clothing", "Home & Kitchen", "Books", "Toys"]),
