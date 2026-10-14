@@ -1,0 +1,5 @@
+defaultProject: ecommerce-data-pipeline-511117
+defaultDataset: ecommerce_staging
+defaultLocation: us-central1
+defaultAssertionDataset: ecommerce_staging_assertions
+dataformCoreVersion: 3.0.52

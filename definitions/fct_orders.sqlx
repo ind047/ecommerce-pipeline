@@ -1,0 +1,20 @@
+config {
+    type:"table",
+    schema:"ecommerce_staging",
+    assertions:{
+    uniqueKey: ["order_id"],
+    nonNull:["order_id","customer_id","order_timestamp"],
+    rowConditions:[
+        "price > 0","quantity>0",
+        "status IN ('Pending','Shipped','Delivered','Cancelled')"
+    ]},
+    bigquery:{
+        partitionBy: "DATE(order_timestamp)",
+        clusterBy: ["customer_id","product_category"]
+    }
+
+}
+
+SELECT order_id,customer_id,product_category,price,quantity,
+        price*quantity as revenue, order_timestamp,status
+        FROM ${ref("stg_orders")}
