@@ -1,4 +1,4 @@
-# Orchestrated E-Commerce Analytics Pipeline
+# E-Commerce Analytics Pipeline
 
 An end-to-end, fully automated data pipeline on **Google Cloud Platform** — from data
 generation to an executive dashboard — built to production patterns: serverless,
