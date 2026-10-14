@@ -73,7 +73,7 @@ declaratively via `_FILE_NAME` filtering at staging — history intact, analytic
 **Everything in git.** Generator, function, table definitions, Dataform models,
 Terraform — the system is reproducible from the repo.
 
-## Concepts practiced
+## Concepts used
 
 - Serverless & containerized deploys (Cloud Build → Artifact Registry → Cloud Run)
 - Batch vs. streaming trade-offs; immutable file-based lakes
