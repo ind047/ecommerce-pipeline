@@ -1,0 +1,6 @@
+config {
+    type:"declaration",
+    database:"ecommerce-data-pipeline-511117",
+    schema: "ecommerce_staging",
+    name:"raw_orders_external"
+}
