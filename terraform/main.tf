@@ -1,14 +1,5 @@
-resource "google_storage_bucket" "terraform_test" {
-    name     = "ecommerce-terraform-test-bucket-511117"
+resource "google_storage_bucket" "raw_data"{
+    name     = "ecommerce-data-pipeline-511117-raw-data"
     location = "us-central1"
-    force_destroy = true
-
-    lifecycle_rule {
-        condition{
-            age=1
-        }
-        action{
-            type="Delete"
-        }
-    }
+    force_destroy = false
 }
